@@ -1,28 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const locationSchema = mongoose.Schema({
-    name: {
+const employeeSchema = mongoose.Schema({
+    firstName: {
         required: true,
         type: String
     },
 
-    city: {
-        required: true,
-        type: String
-    },
-
-    address: {
-        required: true,
-        type: String
-    },
-
-    capacity: {
-        required: true,
-        type: Number
-    },
-
-    description: {
+    lastName: {
         required: true,
         type: String
     },
@@ -35,9 +20,14 @@ const locationSchema = mongoose.Schema({
     phoneNumber: {
         required: true,
         type: String
+    },
+
+    address: {
+        required: true,
+        type: String
     }
 });
 
-const Location = mongoose.model('Location', locationSchema);
+const Employee = mongoose.model('Employee', employeeSchema);
 
-module.exports = Location;
+module.exports = Employee;

@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const roleSchema = mongoose.Schema({
+const employeeRoleSchema = mongoose.Schema({
     name: {
         required: true,
         type: String
     },
 
-    attribution: {
+    attributions: {
         required: true,
         type: String
     }
 });
 
-const Role = mongoose.model('Role', roleSchema);
+const EmployeeRole = mongoose.model('EmployeeRole', employeeRoleSchema);
 
-module.exports = Role;
+module.exports = EmployeeRole;

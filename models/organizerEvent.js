@@ -1,22 +1,23 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const concertSchema = mongoose.Schema({
-    name: {
-        required: true,
-        type: String
-    },
-
+const organizerConcertSchema = mongoose.Schema({
     event: {
         required: true,
         type: Schema.Types.ObjectId,
         ref: "Event"
     },
 
-    location: {
+    organizer: {
         required: true,
         type: Schema.Types.ObjectId,
-        ref: "Location"
+        ref: "Organizer"
+    },
+
+    role: {
+        required: true,
+        type: Schema.Type.ObjectId,
+        ref: "Role"
     },
 
     startTime: {
@@ -29,7 +30,12 @@ const concertSchema = mongoose.Schema({
         type: Date
     },
 
-    description: {
+    cost: {
+        required: true,
+        type: Number
+    },
+
+    benefits: {
         required: true,
         type: String
     }
@@ -38,6 +44,6 @@ const concertSchema = mongoose.Schema({
     timestamps: true
 });
 
-const Concert = mongoose.model('Concert', concertSchema);
+const OrganizerEvent = mongoose.model('OrganizerEvent', organizerConcertSchema);
 
-module.exports = Concert;
+module.exports = OrganizerEvent;

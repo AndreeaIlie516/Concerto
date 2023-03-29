@@ -1,22 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const concertSchema = mongoose.Schema({
-    name: {
-        required: true,
-        type: String
-    },
-
+const engagedSchema = mongoose.Schema({
     event: {
         required: true,
         type: Schema.Types.ObjectId,
         ref: "Event"
     },
 
-    location: {
+    hasRole: {
         required: true,
         type: Schema.Types.ObjectId,
-        ref: "Location"
+        ref: "HasRole"
     },
 
     startTime: {
@@ -29,15 +24,15 @@ const concertSchema = mongoose.Schema({
         type: Date
     },
 
-    description: {
+    cost: {
         required: true,
-        type: String
+        type: Number
     }
 },
 {
     timestamps: true
 });
 
-const Concert = mongoose.model('Concert', concertSchema);
+const Engaged = mongoose.model('Engaged', engagedSchema);
 
-module.exports = Concert;
+module.exports = Engaged;

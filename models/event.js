@@ -1,21 +1,31 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const artistSchema = mongoose.Schema({
+const eventSchema = mongoose.Schema({
     name: {
         required: true,
         type: String
     },
 
-    manager: {
+    location: {
         required: true,
         type: Schema.Types.ObjectId,
-        ref: "Manager"
+        ref: "Location"
     },
 
-    members: {
+    startTime: {
         required: true,
-        type: String
+        type: Date
+    },
+
+    endTime: {
+        required: true,
+        type: Date
+    },
+
+    openGatesTime: {
+        required: true,
+        type: Date
     },
 
     description: {
@@ -23,16 +33,16 @@ const artistSchema = mongoose.Schema({
         type: String
     },
 
-    category: {
+    eventType: {
         required: true,
         type: Schema.Types.ObjectId,
-        ref: "Category"
+        ref: "EventType"
     }
 },
     {
         timestamps: true
     });
 
-const Artist = mongoose.model('Artist', artistSchema);
+const Event = mongoose.model('Event', eventSchema);
 
-module.exports = Artist;
+module.exports = Event;
