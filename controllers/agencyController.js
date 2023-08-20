@@ -20,9 +20,9 @@ async function getAllAgencies(req, res) {
 
 async function getAgencyByID(req, res) {
   try {
-    let { ID } = req.params;
-    let artist = await Service.getAgencyByID(ID);
-    res.status(200).json(artist);
+    let agencyID = req.params.ID;
+    let agency = await Service.getAgencyByID(agencyID);
+    res.status(200).json(agency);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -49,8 +49,8 @@ async function deleteAgency(req, res) {
 
 async function updateAgency(req, res) {
   try {
-    let { ID } = req.params;
-    let agency = await Service.updateAgency(ID, req.body);
+    let agencyID = req.params.ID;
+    let agency = await Service.updateAgency(agencyID, req.body);
     res.status(200).json(agency);
   } catch (error) {
     res.status(400).json({ message: error.message });
