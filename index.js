@@ -22,6 +22,7 @@ const port = 4000;
 app.use(express.json());
 
 require("./routes/agencyRoute.js")(app);
+require("./routes/genreRoute.js")(app);
 
 app.listen(port, () => {
   console.log(`Hello world app listening on port ${port}!`);
