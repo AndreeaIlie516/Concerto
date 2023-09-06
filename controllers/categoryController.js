@@ -8,7 +8,7 @@ module.exports = {
   updateCategory,
 };
 
-async function getAllCategory(req, res) {
+async function getAllCategories(req, res) {
   try {
     let category = await Service.getAllCategories();
     res.status(200).json(category);
