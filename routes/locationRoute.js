@@ -1,5 +1,3 @@
-const locationModel = require("../models/location.js");
-
 module.exports = (app) => {
   const Controller = require("../controllers/locationController.js");
   app.get("/location/getAllLocations", Controller.getAllLocations);
