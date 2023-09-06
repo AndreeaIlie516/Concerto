@@ -5,7 +5,7 @@ module.exports = {
   getGenreByID,
   addGenre,
   deleteGenre,
-  updateGenre,
+  updateGenre
 };
 
 async function getAllGenres(req, res) {

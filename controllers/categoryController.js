@@ -5,7 +5,7 @@ module.exports = {
   getCategoryByID,
   addCategory,
   deleteCategory,
-  updateCategory,
+  updateCategory
 };
 
 async function getAllCategories(req, res) {

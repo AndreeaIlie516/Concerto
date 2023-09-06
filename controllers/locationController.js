@@ -5,13 +5,13 @@ module.exports = {
   getLocationByID,
   addLocation,
   deleteLocation,
-  updateLocation,
+  updateLocation
 };
 
 async function getAllLocations(req, res) {
   try {
-    let concerts = await Service.getAllLocations();
-    res.status(200).json(concerts);
+    let locations = await Service.getAllLocations();
+    res.status(200).json(locations);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -20,8 +20,8 @@ async function getAllLocations(req, res) {
 async function getLocationByID(req, res) {
   try {
     let locationID = req.params.ID;
-    let concert = await Service.getLocationByID(locationID);
-    res.status(200).json(concert);
+    let location = await Service.getLocationByID(locationID);
+    res.status(200).json(location);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

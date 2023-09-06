@@ -6,7 +6,7 @@ module.exports = {
   getAgencyByID,
   addAgency,
   deleteAgency,
-  updateAgency,
+  updateAgency
 };
 
 async function getAllAgencies(req, res) {
