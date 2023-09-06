@@ -29,6 +29,7 @@ require("./routes/genreRoute.js")(app);
 require("./routes/locationRoute.js")(app);
 require("./routes/organizerRoute.js")(app);
 require("./routes/roleRoute.js")(app);
+require("./routes/ticketRoute.js")(app);
 
 app.listen(port, () => {
   console.log(`Hello world app listening on port ${port}!`);
