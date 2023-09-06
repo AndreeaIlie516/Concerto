@@ -6,7 +6,7 @@ module.exports = {
   addCustomer,
   deleteCustomer,
   updateCustomer,
-  customerExists
+  customerExists,
 };
 
 async function getAllCustomers() {

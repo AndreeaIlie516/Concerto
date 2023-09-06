@@ -6,7 +6,7 @@ module.exports = {
   addEventType,
   deleteEventType,
   updateEventType,
-  eventTypeExists
+  eventTypeExists,
 };
 
 async function getAllEventTypes() {
@@ -30,7 +30,10 @@ async function deleteEventType(ID) {
 }
 
 async function updateEventType(ID, params) {
-  let eventTypeToUpdate = await EventType.findByIdAndUpdate({ _id: ID }, params);
+  let eventTypeToUpdate = await EventType.findByIdAndUpdate(
+    { _id: ID },
+    params
+  );
   return eventTypeToUpdate;
 }
 

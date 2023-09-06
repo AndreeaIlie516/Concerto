@@ -5,7 +5,7 @@ module.exports = {
   getLocationByID,
   addLocation,
   deleteLocation,
-  updateLocation
+  updateLocation,
 };
 
 async function getAllLocations(req, res) {

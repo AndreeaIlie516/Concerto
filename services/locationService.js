@@ -6,7 +6,7 @@ module.exports = {
   addLocation,
   deleteLocation,
   updateLocation,
-  locationExists
+  locationExists,
 };
 
 async function getAllLocations() {

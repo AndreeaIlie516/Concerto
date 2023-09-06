@@ -5,7 +5,7 @@ module.exports = {
   getEventTypeByID,
   addEventType,
   deleteEventType,
-  updateEventType
+  updateEventType,
 };
 
 async function getAllEventTypes(req, res) {

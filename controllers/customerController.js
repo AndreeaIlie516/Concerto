@@ -5,7 +5,7 @@ module.exports = {
   getCustomerByID,
   addCustomer,
   deleteCustomer,
-  updateCustomer
+  updateCustomer,
 };
 
 async function getAllCustomers(req, res) {
