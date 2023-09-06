@@ -22,6 +22,7 @@ const port = 4000;
 app.use(express.json());
 
 require("./routes/agencyRoute.js")(app);
+require("./routes/categoryRoute.js")(app);
 require("./routes/genreRoute.js")(app);
 require("./routes/locationRoute.js")(app);
 
