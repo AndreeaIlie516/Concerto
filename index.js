@@ -27,6 +27,7 @@ require("./routes/customerRoute.js")(app);
 require("./routes/eventTypeRoute.js")(app);
 require("./routes/genreRoute.js")(app);
 require("./routes/locationRoute.js")(app);
+require("./routes/organizerRoute.js")(app);
 
 app.listen(port, () => {
   console.log(`Hello world app listening on port ${port}!`);
