@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const artistSchema = mongoose.Schema(
   {
@@ -9,7 +10,8 @@ const artistSchema = mongoose.Schema(
 
     manager: {
       required: true,
-      type: String
+      type: Schema.Types.ObjectId,
+      ref: "Manager",
     },
 
     members: {
