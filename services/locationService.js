@@ -31,7 +31,7 @@ async function getLocationByID(ID) {
 async function addLocation(params) {
   try {
     let cityId = params.city;
-    let city = await CityService.getCityByID(cityId);
+    let city = await CityService.cityExists(cityId);
 
     if (!city) {
       throw new Error("No city with id ${cityID} exists in the database.");

@@ -1,4 +1,5 @@
 const Manager = require("../models/manager.js");
+const Artist = require("../models/artist.js");
 
 module.exports = {
   getAllManagers,
@@ -39,6 +40,7 @@ async function addManager(params) {
 async function deleteManager(ID) {
   try {
     let managerToDelete = await Manager.findByIdAndDelete({ _id: ID });
+    let managerToDeleteFromArtists = await Artist.deleteMany({ manager: ID });
     return managerToDelete;
   } catch (error) {
     throw error;
@@ -48,6 +50,10 @@ async function deleteManager(ID) {
 async function updateManager(ID, params) {
   try {
     let managerToUpdate = await Manager.findByIdAndUpdate({ _id: ID }, params);
+    let managerToUpdateInArtists = await Artist.updateMany(
+      { manager: ID },
+      params
+    );
     return managerToUpdate;
   } catch (error) {
     throw error;
