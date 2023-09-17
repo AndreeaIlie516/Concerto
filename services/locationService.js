@@ -1,4 +1,5 @@
 const Location = require("../models/location.js");
+const CityService = require("../services/cityService.js");
 
 module.exports = {
   getAllLocations,
@@ -10,28 +11,58 @@ module.exports = {
 };
 
 async function getAllLocations() {
-  let location = await Location.find({});
-  return location;
+  try {
+    let location = await Location.find({}).populate("city");
+    return location;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function getLocationByID(ID) {
-  let location = await Location.findById({ _id: ID });
-  return location;
+  try {
+    let location = await Location.findById({ _id: ID }).populate("city");
+    return location;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function addLocation(params) {
-  let locationToAdd = await Location.create(params);
-  return locationToAdd;
+  try {
+    let cityId = params.city;
+    let city = await CityService.getCityByID(cityId);
+
+    if (!city) {
+      throw new Error("No city with id ${cityID} exists in the database.");
+    }
+
+    let locationToAdd = await Location.create(params);
+    return locationToAdd;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function deleteLocation(ID) {
-  let locationToDelete = await Location.findByIdAndDelete({ _id: ID });
-  return locationToDelete;
+  try {
+    let locationToDelete = await Location.findByIdAndDelete({ _id: ID });
+    return locationToDelete;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function updateLocation(ID, params) {
-  let locationToUpdate = await Location.findByIdAndUpdate({ _id: ID }, params);
-  return locationToUpdate;
+  try {
+    let locationToUpdate = await Location.findByIdAndUpdate(
+      { _id: ID },
+      params
+    );
+    return locationToUpdate;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function locationExists(ID) {

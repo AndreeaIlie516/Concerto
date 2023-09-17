@@ -10,28 +10,48 @@ module.exports = {
 };
 
 async function getAllGenres() {
-  let genres = await Genre.find({});
-  return genres;
+  try {
+    let genres = await Genre.find({});
+    return genres;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function getGenreByID(ID) {
-  let genre = await Genre.findById({ _id: ID });
-  return genre;
+  try {
+    let genre = await Genre.findById({ _id: ID });
+    return genre;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function addGenre(params) {
-  let genreToAdd = await Genre.create(params);
-  return genreToAdd;
+  try {
+    let genreToAdd = await Genre.create(params);
+    return genreToAdd;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function deleteGenre(ID) {
-  let genreToDelete = await Genre.findByIdAndDelete({ _id: ID });
-  return genreToDelete;
+  try {
+    let genreToDelete = await Genre.findByIdAndDelete({ _id: ID });
+    return genreToDelete;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function updateGenre(ID, params) {
-  let genreToUpdate = await Genre.findByIdAndUpdate({ _id: ID }, params);
-  return genreToUpdate;
+  try {
+    let genreToUpdate = await Genre.findByIdAndUpdate({ _id: ID }, params);
+    return genreToUpdate;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function genreExists(ID) {

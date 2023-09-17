@@ -10,28 +10,48 @@ module.exports = {
 };
 
 async function getAllTickets() {
-  let ticket = await Ticket.find({});
-  return ticket;
+  try {
+    let ticket = await Ticket.find({});
+    return ticket;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function getTicketByID(ID) {
-  let ticket = await Ticket.findById({ _id: ID });
-  return ticket;
+  try {
+    let ticket = await Ticket.findById({ _id: ID });
+    return ticket;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function addTicket(params) {
-  let ticketToAdd = await Ticket.create(params);
-  return ticketToAdd;
+  try {
+    let ticketToAdd = await Ticket.create(params);
+    return ticketToAdd;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function deleteTicket(ID) {
-  let ticketToDelete = await Ticket.findByIdAndDelete({ _id: ID });
-  return ticketToDelete;
+  try {
+    let ticketToDelete = await Ticket.findByIdAndDelete({ _id: ID });
+    return ticketToDelete;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function updateTicket(ID, params) {
-  let ticketToUpdate = await Ticket.findByIdAndUpdate({ _id: ID }, params);
-  return ticketToUpdate;
+  try {
+    let ticketToUpdate = await Ticket.findByIdAndUpdate({ _id: ID }, params);
+    return ticketToUpdate;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function ticketExists(ID) {

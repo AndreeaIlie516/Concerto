@@ -10,31 +10,51 @@ module.exports = {
 };
 
 async function getAllEventTypes() {
-  let eventType = await EventType.find({});
-  return eventType;
+  try {
+    let eventType = await EventType.find({});
+    return eventType;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function getEventTypeByID(ID) {
-  let eventType = await EventType.findById({ _id: ID });
-  return eventType;
+  try {
+    let eventType = await EventType.findById({ _id: ID });
+    return eventType;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function addEventType(params) {
-  let eventTypeToAdd = await EventType.create(params);
-  return eventTypeToAdd;
+  try {
+    let eventTypeToAdd = await EventType.create(params);
+    return eventTypeToAdd;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function deleteEventType(ID) {
-  let eventTypeToDelete = await EventType.findByIdAndDelete({ _id: ID });
-  return eventTypeToDelete;
+  try {
+    let eventTypeToDelete = await EventType.findByIdAndDelete({ _id: ID });
+    return eventTypeToDelete;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function updateEventType(ID, params) {
-  let eventTypeToUpdate = await EventType.findByIdAndUpdate(
-    { _id: ID },
-    params
-  );
-  return eventTypeToUpdate;
+  try {
+    let eventTypeToUpdate = await EventType.findByIdAndUpdate(
+      { _id: ID },
+      params
+    );
+    return eventTypeToUpdate;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function eventTypeExists(ID) {

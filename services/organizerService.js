@@ -10,31 +10,51 @@ module.exports = {
 };
 
 async function getAllOrganizers() {
-  let organizer = await Organizer.find({});
-  return organizer;
+  try {
+    let organizer = await Organizer.find({});
+    return organizer;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function getOrganizerByID(ID) {
-  let organizer = await Organizer.findById({ _id: ID });
-  return organizer;
+  try {
+    let organizer = await Organizer.findById({ _id: ID });
+    return organizer;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function addOrganizer(params) {
-  let organizerToAdd = await Organizer.create(params);
-  return organizerToAdd;
+  try {
+    let organizerToAdd = await Organizer.create(params);
+    return organizerToAdd;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function deleteOrganizer(ID) {
-  let organizerToDelete = await Organizer.findByIdAndDelete({ _id: ID });
-  return organizerToDelete;
+  try {
+    let organizerToDelete = await Organizer.findByIdAndDelete({ _id: ID });
+    return organizerToDelete;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function updateOrganizer(ID, params) {
-  let organizerToUpdate = await Organizer.findByIdAndUpdate(
-    { _id: ID },
-    params
-  );
-  return organizerToUpdate;
+  try {
+    let organizerToUpdate = await Organizer.findByIdAndUpdate(
+      { _id: ID },
+      params
+    );
+    return organizerToUpdate;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function organizerExists(ID) {

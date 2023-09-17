@@ -10,28 +10,48 @@ module.exports = {
 };
 
 async function getAllRoles() {
-  let role = await Role.find({});
-  return role;
+  try {
+    let role = await Role.find({});
+    return role;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function getRoleByID(ID) {
-  let role = await Role.findById({ _id: ID });
-  return role;
+  try {
+    let role = await Role.findById({ _id: ID });
+    return role;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function addRole(params) {
-  let roleToAdd = await Role.create(params);
-  return roleToAdd;
+  try {
+    let roleToAdd = await Role.create(params);
+    return roleToAdd;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function deleteRole(ID) {
-  let roleToDelete = await Role.findByIdAndDelete({ _id: ID });
-  return roleToDelete;
+  try {
+    let roleToDelete = await Role.findByIdAndDelete({ _id: ID });
+    return roleToDelete;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function updateRole(ID, params) {
-  let roleToUpdate = await Role.findByIdAndUpdate({ _id: ID }, params);
-  return roleToUpdate;
+  try {
+    let roleToUpdate = await Role.findByIdAndUpdate({ _id: ID }, params);
+    return roleToUpdate;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function roleExists(ID) {

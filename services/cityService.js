@@ -1,4 +1,5 @@
 const City = require("../models/city.js");
+const Location = require("../models/location.js");
 
 module.exports = {
   getAllCities,
@@ -10,28 +11,53 @@ module.exports = {
 };
 
 async function getAllCities() {
-  let city = await City.find({});
-  return city;
+  try {
+    let city = await City.find({});
+    return city;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function getCityByID(ID) {
-  let city = await City.findById({ _id: ID });
-  return city;
+  try {
+    let city = await City.findById({ _id: ID });
+    return city;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function addCity(params) {
-  let cityToAdd = await City.create(params);
-  return cityToAdd;
+  try {
+    let cityToAdd = await City.create(params);
+    return cityToAdd;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function deleteCity(ID) {
-  let cityToDelete = await City.findByIdAndDelete({ _id: ID });
-  return cityToDelete;
+  try {
+    let cityToDelete = await City.findByIdAndDelete({ _id: ID });
+    let cityToDeleteFromLocations = await Location.deleteMany({ city: ID });
+    return cityToDelete;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function updateCity(ID, params) {
-  let cityToUpdate = await City.findByIdAndUpdate({ _id: ID }, params);
-  return cityToUpdate;
+  try {
+    let cityToUpdate = await City.findByIdAndUpdate({ _id: ID }, params);
+    let cityToUpdateInLocations = await Location.updateMany(
+      { city: ID },
+      params
+    );
+    return cityToUpdate;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function cityExists(ID) {

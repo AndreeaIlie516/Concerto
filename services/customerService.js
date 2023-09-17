@@ -10,28 +10,51 @@ module.exports = {
 };
 
 async function getAllCustomers() {
-  let customer = await Customer.find({});
-  return customer;
+  try {
+    let customer = await Customer.find({});
+    return customer;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function getCustomerByID(ID) {
-  let customer = await Customer.findById({ _id: ID });
-  return customer;
+  try {
+    let customer = await Customer.findById({ _id: ID });
+    return customer;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function addCustomer(params) {
-  let customerToAdd = await Customer.create(params);
-  return customerToAdd;
+  try {
+    let customerToAdd = await Customer.create(params);
+    return customerToAdd;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function deleteCustomer(ID) {
-  let customerToDelete = await Customer.findByIdAndDelete({ _id: ID });
-  return customerToDelete;
+  try {
+    let customerToDelete = await Customer.findByIdAndDelete({ _id: ID });
+    return customerToDelete;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function updateCustomer(ID, params) {
-  let customerToUpdate = await Customer.findByIdAndUpdate({ _id: ID }, params);
-  return customerToUpdate;
+  try {
+    let customerToUpdate = await Customer.findByIdAndUpdate(
+      { _id: ID },
+      params
+    );
+    return customerToUpdate;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function customerExists(ID) {
