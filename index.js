@@ -21,6 +21,7 @@ const port = 4000;
 
 app.use(express.json());
 
+require("./routes/artistRoute.js")(app);
 require("./routes/cityRoute.js")(app);
 require("./routes/customerRoute.js")(app);
 require("./routes/eventTypeRoute.js")(app);
