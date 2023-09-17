@@ -9,8 +9,7 @@ const artistSchema = mongoose.Schema(
 
     manager: {
       required: true,
-      type: Schema.Types.ObjectId,
-      ref: "Manager",
+      type: String
     },
 
     members: {
@@ -21,12 +20,6 @@ const artistSchema = mongoose.Schema(
     description: {
       required: true,
       type: String,
-    },
-
-    category: {
-      required: true,
-      type: Schema.Types.ObjectId,
-      ref: "Category",
     },
   },
   {
