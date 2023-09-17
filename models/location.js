@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const locationSchema = mongoose.Schema({
   name: {
@@ -8,7 +9,8 @@ const locationSchema = mongoose.Schema({
 
   city: {
     required: true,
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: "City",
   },
 
   address: {
@@ -35,6 +37,9 @@ const locationSchema = mongoose.Schema({
     required: true,
     type: String,
   },
+},
+{
+  timestamps: true,
 });
 
 const Location = mongoose.model("Location", locationSchema);
